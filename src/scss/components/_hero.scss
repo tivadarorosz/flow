@@ -37,6 +37,59 @@
     @include media-xl {
       font-size: 22.5rem;
     }
+    
+    // Character blur effect styles
+    .char {
+      display: inline-block;
+      position: relative;
+      filter: blur(0);
+      -webkit-filter: blur(0);
+      transition: filter 1.5s ease-in-out;
+      
+      &::before {
+        content: attr(data-char);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(25px);
+        -webkit-filter: blur(25px);
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+      
+      &--blur {
+        filter: blur(3px);
+        -webkit-filter: blur(3px);
+        transition: filter 1.5s ease-in-out;
+        
+        &::before {
+          opacity: 1;
+          animation: circleBlur 4s infinite linear;
+        }
+      }
+    }
+    
+  }
+  
+  // Keyframe for circular blur motion
+  @keyframes circleBlur {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(3px, -3px);
+    }
+    50% {
+      transform: translate(0, -4px);
+    }
+    75% {
+      transform: translate(-3px, -3px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
   
   &__subtitle {
