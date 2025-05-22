@@ -1,0 +1,65 @@
+// Hero Component
+@use '../tokens' as *;
+
+.hero {
+  min-height: 60vh;
+  background-color: transparent;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: $space-16;
+  
+  @include media-lg {
+    min-height: 70vh;
+    padding-bottom: $space-20;
+  }
+  
+  &__container {
+    width: 100%;
+    text-align: center;
+  }
+  
+  &__title {
+    font-size: 4.5rem;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    
+    @include media-md {
+      font-size: 9rem;
+    }
+    
+    @include media-lg {
+      font-size: 15rem;
+    }
+    
+    @include media-xl {
+      font-size: 22.5rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-normal;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: $space-2;
+    margin-bottom: $space-8;
+    line-height: $line-height-tight;
+    letter-spacing: $letter-spacing-wide;
+    
+    @include media-md {
+      font-size: $font-size-xl;
+    }
+    
+    @include media-lg {
+      font-size: $font-size-2xl;
+    }
+    
+    @include media-xl {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  // Apply glass button styles directly
+}

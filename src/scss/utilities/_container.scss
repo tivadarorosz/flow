@@ -1,0 +1,25 @@
+// Container Utility
+@use '../tokens' as *;
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding-mobile;
+  padding-right: $container-padding-mobile;
+  
+  @include media-md {
+    padding-left: $container-padding-tablet;
+    padding-right: $container-padding-tablet;
+  }
+  
+  @include media-lg {
+    padding-left: $container-padding-desktop;
+    padding-right: $container-padding-desktop;
+  }
+  
+  // Maintain padding on wide screens
+  @include media-xl {
+    max-width: 100%;
+  }
+}

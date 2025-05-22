@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - Flow</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="video-wrapper">
+    <video class="background-video" autoplay muted loop playsinline>
+      <source src="{{ site.cdnUrl }}/videos/serene-elegance-revealed.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+  
+  <header class="header">
+    <div class="container">
+      <div class="header__container">
+        <a href="/" class="header__logo">Flow</a>
+        
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="/massage" class="header__nav-link">Massage</a></li>
+            <li><a href="/packages" class="header__nav-link">Packages</a></li>
+            <li><a href="/pricing" class="header__nav-link">Pricing</a></li>
+            <li><a href="/about" class="header__nav-link">About</a></li>
+            <li><a href="/visit" class="header__nav-link">Visit</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header__cta">
+          <a href="/booking" class="btn-glass">Booking</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    {{ content | safe }}
+  </main>
+</body>
+</html>

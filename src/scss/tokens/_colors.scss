@@ -1,0 +1,37 @@
+// Color Tokens
+// Primary Colors
+$color-primary-50: #e6f2ff;
+$color-primary-100: #b3d9ff;
+$color-primary-200: #80bfff;
+$color-primary-300: #4da6ff;
+$color-primary-400: #1a8cff;
+$color-primary-500: #0073e6;
+$color-primary-600: #005bb3;
+$color-primary-700: #004380;
+$color-primary-800: #002b4d;
+$color-primary-900: #00141a;
+
+// Neutral Colors
+$color-neutral-50: #fafafa;
+$color-neutral-100: #f5f5f5;
+$color-neutral-200: #e5e5e5;
+$color-neutral-300: #d4d4d4;
+$color-neutral-400: #a3a3a3;
+$color-neutral-500: #737373;
+$color-neutral-600: #525252;
+$color-neutral-700: #404040;
+$color-neutral-800: #262626;
+$color-neutral-900: #171717;
+
+// Semantic Colors
+$color-white: #ffffff;
+$color-black: #000000;
+
+// Brand Colors
+$color-brand-primary: $color-primary-500;
+$color-brand-secondary: $color-primary-600;
+
+// Text Colors
+$color-text-primary: $color-neutral-900;
+$color-text-secondary: $color-neutral-600;
+$color-text-inverse: $color-white;

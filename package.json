@@ -1,0 +1,20 @@
+{
+  "name": "flow",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npm run sass:watch & eleventy --serve",
+    "build": "npm run sass && eleventy",
+    "watch": "npm run sass:watch & eleventy --serve",
+    "sass": "sass src/scss/main.scss _site/css/main.css",
+    "sass:watch": "sass --watch src/scss/main.scss:_site/css/main.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.0",
+    "sass": "^1.89.0"
+  }
+}

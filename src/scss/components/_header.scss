@@ -1,0 +1,65 @@
+// Header Component
+@use '../tokens' as *;
+
+.header {
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4rem;
+    gap: $space-4;
+    
+    @include media-lg {
+      min-height: 5rem;
+    }
+  }
+  
+  &__logo {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    flex-shrink: 0;
+  }
+  
+  &__nav {
+    display: none;
+    
+    @include media-lg {
+      display: block;
+      flex: 1;
+      text-align: center;
+    }
+  }
+  
+  &__nav-list {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-8;
+  }
+  
+  &__nav-link {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: $color-white;
+    }
+    
+    &--active {
+      color: $color-white;
+    }
+  }
+  
+  &__cta {
+    flex-shrink: 0;
+  }
+  
+  // Apply glass button styles directly
+}
