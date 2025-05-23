@@ -5,35 +5,28 @@
   min-height: 100vh;
   background-color: transparent;
   display: flex;
-  align-items: flex-end;
-  padding-bottom: $space-24;
+  align-items: flex-start;
+  padding-top: $space-16;
   
   @include media-lg {
     min-height: 100vh;
-    padding-bottom: 10rem;
+    padding-top: $space-24;
   }
   
   &__container {
     width: 100%;
     text-align: left;
-    display: flex;
-    align-items: flex-end;
-    gap: $space-8;
   }
   
   &__content {
     flex: 1;
-    padding-left: $space-4;
-    
-    @include media-lg {
-      padding-left: $space-8;
-    }
   }
   
   &__divider {
     width: 28rem;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: $color-text-primary;
+    opacity: 0.8;
     margin: $space-4 0;
     
     @include media-md {
@@ -51,106 +44,75 @@
   
   &__title {
     font-size: 1.75rem;
-    font-weight: $font-weight-bold;
-    color: $color-white;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
     margin: 0;
     line-height: 1.1;
     letter-spacing: 0.02em;
-    max-width: 28rem;
+    max-width: 30rem;
     
     @include media-md {
       font-size: 2.5rem;
-      max-width: 32rem;
+      max-width: 35rem;
     }
     
     @include media-lg {
       font-size: 3rem;
-      max-width: 36rem;
+      max-width: 40rem;
     }
     
     @include media-xl {
       font-size: 3.5rem;
-      max-width: 40rem;
-    }
-    
-    // Character blur effect styles
-    .char {
-      display: inline-block;
-      position: relative;
-      filter: blur(0);
-      -webkit-filter: blur(0);
-      transition: filter 1.5s ease-in-out;
-      
-      &::before {
-        content: attr(data-char);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        filter: blur(25px);
-        -webkit-filter: blur(25px);
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-      }
-      
-      &--blur {
-        filter: blur(3px);
-        -webkit-filter: blur(3px);
-        transition: filter 1.5s ease-in-out;
-        
-        &::before {
-          opacity: 1;
-          animation: circleBlur 4s infinite linear;
-        }
-      }
-    }
-    
-  }
-  
-  // Keyframe for circular blur motion
-  @keyframes circleBlur {
-    0% {
-      transform: translate(0, 0);
-    }
-    25% {
-      transform: translate(3px, -3px);
-    }
-    50% {
-      transform: translate(0, -4px);
-    }
-    75% {
-      transform: translate(-3px, -3px);
-    }
-    100% {
-      transform: translate(0, 0);
+      max-width: 45rem;
     }
   }
   
   &__subtitle {
     font-size: $font-size-lg;
     font-weight: $font-weight-normal;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 0;
+    color: $color-text-primary;
+    opacity: 0.8;
+    margin-top: $space-3;
     margin-bottom: $space-8;
     line-height: $line-height-relaxed;
     letter-spacing: $letter-spacing-normal;
-    max-width: 28rem;
+    max-width: 30rem;
     
     @include media-md {
       font-size: $font-size-xl;
-      max-width: 32rem;
+      max-width: 35rem;
     }
     
     @include media-lg {
       font-size: $font-size-2xl;
-      max-width: 36rem;
+      max-width: 40rem;
     }
     
     @include media-xl {
       font-size: $font-size-2xl;
-      max-width: 40rem;
+      max-width: 45rem;
     }
+  }
+  
+  &__video-container {
+    width: 100%;
+    margin-top: $space-8;
+    
+    @include media-lg {
+      margin-top: $space-12;
+    }
+  }
+  
+  &__video-placeholder {
+    width: 100%;
+    padding-bottom: 35%; // Between half and full 16:9
+    background-color: #BCD1CA;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
   }
   
   // Apply glass button styles directly

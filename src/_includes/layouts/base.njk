@@ -7,17 +7,11 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-  <div class="image-wrapper">
-    <img class="background-image" src="{{ site.cdnUrl }}/images/main.webp" alt="Flow background">
-    <div class="image-overlay"></div>
-  </div>
   
   {% include "partials/header.njk" %}
   
   <main>
     {{ content | safe }}
   </main>
-  
-  <script src="/assets/character-blur.js"></script>
 </body>
 </html>

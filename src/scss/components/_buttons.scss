@@ -2,11 +2,11 @@
 @use '../tokens' as *;
 
 .btn-glass {
-  background: rgba(255, 255, 255, 0.15);
+  background: transparent;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid $color-text-primary;
+  color: $color-text-primary;
   padding: $space-3 $space-6;
   border-radius: $border-radius-full;
   font-size: $font-size-base;
@@ -16,8 +16,8 @@
   text-align: center;
   
   &:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: $color-text-primary;
+    color: $color-background;
     transform: translateY(-1px);
   }
   
