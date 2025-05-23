@@ -1,59 +1,68 @@
-// Character Blur Effect for Hero Title
+// Word Blur Effect for Hero Title
 (function() {
   'use strict';
   
-  class CharacterBlurEffect {
+  class WordBlurEffect {
     constructor(element) {
       this.element = element;
       this.originalText = element.textContent;
-      this.chars = [];
-      this.currentBlurredChar = null;
+      this.words = [];
+      this.currentBlurredWord = null;
       this.intervalId = null;
       
       this.init();
     }
     
     init() {
-      // Split text into characters and create structure
-      this.createCharacterElements();
+      // Split text into words and create structure
+      this.createWordElements();
       
       // Start the random blur effect
       this.startRandomBlurCycle();
     }
     
-    createCharacterElements() {
+    createWordElements() {
       // Clear the element
       this.element.innerHTML = '';
       
-      // Create elements for each character
-      for (let i = 0; i < this.originalText.length; i++) {
-        const char = this.originalText[i];
+      // Split text into words
+      const words = this.originalText.split(' ');
+      
+      // Create elements for each word
+      words.forEach((word, index) => {
+        // Create container for word
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'word';
         
-        if (char === ' ') {
-          // For spaces, just add a text node
-          this.element.appendChild(document.createTextNode(' '));
-        } else {
-          // Create container for character
+        // Create spans for each character in the word
+        for (let i = 0; i < word.length; i++) {
           const charSpan = document.createElement('span');
           charSpan.className = 'char';
-          charSpan.textContent = char;
-          charSpan.setAttribute('data-char', char);
-          
-          // Add to element and track
-          this.element.appendChild(charSpan);
-          this.chars.push(charSpan);
+          charSpan.textContent = word[i];
+          charSpan.setAttribute('data-char', word[i]);
+          wordSpan.appendChild(charSpan);
         }
-      }
+        
+        // Add to element and track
+        this.element.appendChild(wordSpan);
+        this.words.push(wordSpan);
+        
+        // Add space between words (except after last word)
+        if (index < words.length - 1) {
+          this.element.appendChild(document.createTextNode(' '));
+        }
+      });
     }
     
-    getRandomCharIndex() {
-      return Math.floor(Math.random() * this.chars.length);
+    getRandomWordIndex() {
+      return Math.floor(Math.random() * this.words.length);
     }
     
     clearCurrentBlur() {
-      if (this.currentBlurredChar !== null) {
-        this.chars[this.currentBlurredChar].classList.remove('char--blur');
-        this.currentBlurredChar = null;
+      if (this.currentBlurredWord !== null) {
+        const chars = this.words[this.currentBlurredWord].querySelectorAll('.char');
+        chars.forEach(char => char.classList.remove('char--blur'));
+        this.currentBlurredWord = null;
       }
     }
     
@@ -61,12 +70,13 @@
       // Clear previous blur
       this.clearCurrentBlur();
       
-      // Get random character
-      const randomIndex = this.getRandomCharIndex();
+      // Get random word
+      const randomIndex = this.getRandomWordIndex();
       
-      // Apply blur to selected character
-      this.chars[randomIndex].classList.add('char--blur');
-      this.currentBlurredChar = randomIndex;
+      // Apply blur to all characters in the selected word
+      const chars = this.words[randomIndex].querySelectorAll('.char');
+      chars.forEach(char => char.classList.add('char--blur'));
+      this.currentBlurredWord = randomIndex;
     }
     
     startRandomBlurCycle() {
@@ -97,7 +107,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     const heroTitle = document.querySelector('.hero__title');
     if (heroTitle) {
-      new CharacterBlurEffect(heroTitle);
+      new WordBlurEffect(heroTitle);
     }
   });
 })();
