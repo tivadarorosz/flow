@@ -1,7 +1,8 @@
-// Video Background Component
+// Background Component (Video/Image)
 @use '../tokens' as *;
 
-.video-wrapper {
+.video-wrapper,
+.image-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +12,8 @@
   z-index: -1;
 }
 
-.background-video {
+.background-video,
+.background-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,7 +25,8 @@
   object-fit: cover;
 }
 
-.video-overlay {
+.video-overlay,
+.image-overlay {
   position: absolute;
   top: 0;
   left: 0;

@@ -29,15 +29,20 @@
       for (let i = 0; i < this.originalText.length; i++) {
         const char = this.originalText[i];
         
-        // Create container for character
-        const charSpan = document.createElement('span');
-        charSpan.className = 'char';
-        charSpan.textContent = char;
-        charSpan.setAttribute('data-char', char);
-        
-        // Add to element and track
-        this.element.appendChild(charSpan);
-        this.chars.push(charSpan);
+        if (char === ' ') {
+          // For spaces, just add a text node
+          this.element.appendChild(document.createTextNode(' '));
+        } else {
+          // Create container for character
+          const charSpan = document.createElement('span');
+          charSpan.className = 'char';
+          charSpan.textContent = char;
+          charSpan.setAttribute('data-char', char);
+          
+          // Add to element and track
+          this.element.appendChild(charSpan);
+          this.chars.push(charSpan);
+        }
       }
     }
     

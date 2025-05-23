@@ -2,40 +2,75 @@
 @use '../tokens' as *;
 
 .hero {
-  min-height: 60vh;
+  min-height: 100vh;
   background-color: transparent;
   display: flex;
   align-items: flex-end;
-  padding-bottom: $space-16;
+  padding-bottom: $space-24;
   
   @include media-lg {
-    min-height: 70vh;
-    padding-bottom: $space-20;
+    min-height: 100vh;
+    padding-bottom: 10rem;
   }
   
   &__container {
     width: 100%;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    align-items: flex-end;
+    gap: $space-8;
   }
   
-  &__title {
-    font-size: 4.5rem;
-    font-weight: $font-weight-bold;
-    color: $color-white;
-    margin: 0;
-    line-height: 1;
-    letter-spacing: 0.05em;
+  &__content {
+    flex: 1;
+    padding-left: $space-4;
+    
+    @include media-lg {
+      padding-left: $space-8;
+    }
+  }
+  
+  &__divider {
+    width: 28rem;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: $space-4 0;
     
     @include media-md {
-      font-size: 9rem;
+      width: 32rem;
     }
     
     @include media-lg {
-      font-size: 15rem;
+      width: 36rem;
     }
     
     @include media-xl {
-      font-size: 22.5rem;
+      width: 40rem;
+    }
+  }
+  
+  &__title {
+    font-size: 1.75rem;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    max-width: 28rem;
+    
+    @include media-md {
+      font-size: 2.5rem;
+      max-width: 32rem;
+    }
+    
+    @include media-lg {
+      font-size: 3rem;
+      max-width: 36rem;
+    }
+    
+    @include media-xl {
+      font-size: 3.5rem;
+      max-width: 40rem;
     }
     
     // Character blur effect styles
@@ -95,22 +130,26 @@
   &__subtitle {
     font-size: $font-size-lg;
     font-weight: $font-weight-normal;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: $space-2;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0;
     margin-bottom: $space-8;
-    line-height: $line-height-tight;
-    letter-spacing: $letter-spacing-wide;
+    line-height: $line-height-relaxed;
+    letter-spacing: $letter-spacing-normal;
+    max-width: 28rem;
     
     @include media-md {
       font-size: $font-size-xl;
+      max-width: 32rem;
     }
     
     @include media-lg {
       font-size: $font-size-2xl;
+      max-width: 36rem;
     }
     
     @include media-xl {
-      font-size: $font-size-3xl;
+      font-size: $font-size-2xl;
+      max-width: 40rem;
     }
   }
   
